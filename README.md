@@ -42,61 +42,27 @@ parent/
 └── pom.xml
 ```
 
-## 如何将项目上传到GitHub
 
-### 准备工作
-1. 在电脑上安装Git
-2. 注册一个GitHub账户
-3. 确保本地有这个项目文件
 
-### 详细步骤
+## 项目说明
 
-#### 1. 初始化本地仓库
-在项目的根目录（`parent/`）下打开终端/命令提示符并运行：
+这个项目是我在学习 Spring Cloud 过程中的练习项目，同时也包含一些写好的指导文档。  
+项目由两个微服务模块组成：  
 
-```bash
-git init
-```
+1. **用户服务（user-service）**：负责用户的注册、登录、信息查询和管理。  
+   - 技术点：MyBatis-Plus 操作数据库、REST API 接口设计、基本的服务层逻辑封装。  
+   - 学习心得：通过该模块熟悉了 Spring Boot 与 MyBatis-Plus 的集成，以及如何设计简单的 CRUD 接口和测试数据流。
 
-#### 2. 添加所有文件到暂存区
-```bash
-git add .
-```
+2. **订单服务（order-service）**：负责订单创建、查询及与用户服务的数据交互。  
+   - 技术点：Feign 远程调用用户服务、Sentinel 限流与熔断、RabbitMQ 消息队列处理、分布式事务初步实践。  
+   - 学习心得：通过该模块学习了微服务间通信方式、异常处理策略以及消息队列在异步处理中的应用，理解了服务解耦的重要性。
 
-#### 3. 提交文件
-```bash
-git commit -m "Initial commit"
-```
+整个项目的核心目标是记录学习过程和实践经验，覆盖了微服务架构的基础知识：  
+- 服务注册与发现（Nacos）  
+- 服务间远程调用与容错（Feign + Sentinel）  
+- 消息队列异步处理（RabbitMQ）  
+- 数据访问层设计与操作（MyBatis-Plus + MySQL）  
+- 项目结构规划与模块划分  
 
-#### 4. 在GitHub上创建新仓库
-1. 访问 [GitHub](https://github.com/)
-2. 点击右上角的"+"图标
-3. 选择"New repository"
-4. 给你的仓库起个名字（例如："spring-cloud-project"）
-5. 可以添加描述信息
-6. 选择公开(Public)或私有(Private)
-7. 不要初始化README文件（我们将推送现有的README）
-8. 点击"Create repository"
-
-#### 5. 将本地仓库连接到GitHub
-从GitHub复制仓库URL（格式类似：`https://github.com/用户名/仓库名.git`）
-
-在终端中运行：
-```bash
-git remote add origin https://github.com/你的用户名/仓库名.git
-```
-
-#### 6. 推送到GitHub
-```bash
-git push -u origin master
-```
-
-## 后续更新
-
-当你对项目做了修改后，可以按以下步骤推送到GitHub：
-
-```bash
-git add .
-git commit -m "描述你的更改"
-git push origin master
-```
+通过这个项目，我能够更好地理解 Spring Cloud 技术栈的使用方法、各模块的职责划分，以及微服务开发中常见问题的解决方案。  
+整个项目**纯粹作为学习参考和个人记录**，便于回顾学习过程、总结经验，并为以后的微服务项目开发提供实践参考和模板。
